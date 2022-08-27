@@ -5,8 +5,8 @@ import Constants from 'expo-constants';
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({         
-        main: '',
-        description: '',
+        main: '-',
+        description: '-',
         temp: 0
     }) 
     useEffect(() => {
