@@ -12,7 +12,7 @@ const availableZipItems = [
    ]
 
 const ZipItem = ({place, code, navigation}) => (
-    <TouchableHighlight onPress={() => {
+    <TouchableHighlight underlayColor="#ADD8E6" onPress={() => {
         navigation.navigate("Weather", {zipCode: code})
     }}>
         <View style= {style.zipItem}>
