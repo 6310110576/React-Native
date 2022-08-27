@@ -1,23 +1,17 @@
-
 import React from 'react';
-
-import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ZipCodeScreen from './screen/ZipCodeScreen';
 import WeatherScreen from './screen/WeatherScreen';
 
 const Stack = createStackNavigator()
-
-export default function App() {
+export default function() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={ZipCodeScreen}/>
-        <Stack.Screen name="Weather" component={WeatherScreen} />
+        <Stack.Screen name = "Home" component = {ZipCodeScreen}/>
+        <Stack.Screen name = "Weather" component={WeatherScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-
-
