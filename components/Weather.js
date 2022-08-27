@@ -7,7 +7,11 @@ export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({         
         main: '-',
         description: '-',
-        temp: 0
+        temp: 0,
+        name: '-',
+        humidity: 0,
+        feels_like: 0,
+
     }) 
     useEffect(() => {
         console.log(`fetching data with zipCode = ${props.zipCode}`)
@@ -18,7 +22,10 @@ export default function Weather(props) {
                     setForecastInfo({
                         main: json.weather[0].main,
                         description: json.weather[0].description,
-                        temp: json.main.temp
+                        temp: json.main.temp,
+                        name: json.name,
+                        humidity: json.main.humidity,
+                        feels_like: json.main.feels_like,
                     });
                 })
             .catch((error) => {
@@ -30,7 +37,8 @@ export default function Weather(props) {
     return (
             <ImageBackground source={require('../saos.jpg')} style={styles.backdrop}>
                 <View style={styles.highlight}>
-                        <Text style={styles.text}>Zip code is {props.zipCode}.</Text>
+                    <Text style={styles.name}>{forecastInfo.name}</Text>
+                        <Text style={styles.text}>ZipCode {props.zipCode}</Text>
                         <Forecast {...forecastInfo} />
                 </View>
             </ImageBackground>
@@ -45,15 +53,21 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 24,
+        fontSize: 20,
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        margin: 10,
+    },
+    name: {
+        fontSize: 40,
+        color: 'white',
+        fontWeight: '600',
     },
 
     highlight: {
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
         width:"100%", 
-        height:"45%", 
+        height:"58%", 
         paddingTop: Constants.statusBarHeight, 
         alignItems: 'center'
     }
