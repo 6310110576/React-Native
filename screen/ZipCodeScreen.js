@@ -16,8 +16,8 @@ const ZipItem = ({place, code, navigation}) => (
         navigation.navigate("Weather", {zipCode: code})
     }}>
         <View style= {style.zipItem}>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+            <Text style= {style.zipPlace}>{place}</Text>
+            <Text style= {style.zipCode}>{code}</Text>
         </View>
     </TouchableHighlight>
 
@@ -44,13 +44,18 @@ const style = StyleSheet.create(
       zipItem: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        margin: 20,
       },
       zipPlace: {
         flex: 1,
+        fontSize: 20,
+        textAlign: 'center',
       },
       zipCode: {
         flex: 1,
+        fontSize: 20,
+        textAlign: 'center',
       }
     }
   )
